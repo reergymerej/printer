@@ -10,17 +10,36 @@
 
 #include <iostream>
 
-void printSquare() {
-  std::cout << "+---------+" << std::endl;
-  std::cout << "|         |" << std::endl;
-  std::cout << "|         |" << std::endl;
-  std::cout << "|         |" << std::endl;
-  std::cout << "|         |" << std::endl;
-  std::cout << "|         |" << std::endl;
-  std::cout << "+---------+" << std::endl;
+std::string getRow(int size, bool isEdge) {
+  std::string row = "";
+  std::string side = isEdge ? "+" : "|";
+  std::string middle = isEdge ? "-" : " ";
+  row += side;
+  for (int column = 1; column < size - 1; column++) {
+    row += middle;
+  }
+  row += side;
+  row += "\n";
+  return row;
+}
+
+void printRow(int size, bool isEdge) {
+  std::string row = getRow(size, isEdge);
+  std::cout << row;
+}
+
+void printSquare(int size) {
+  for (int row = 0; row < size; row++) {
+    if (row == 0 || row == size - 1) {
+      printRow(size, true);
+    } else {
+      printRow(size, false);
+    }
+  }
 }
 
 int main(int argc, const char * argv[]) {
-  printSquare();
+  printSquare(5);
+  printSquare(15);
   return 0;
 }
