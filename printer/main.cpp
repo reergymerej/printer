@@ -9,11 +9,15 @@
 //
 
 #include <iostream>
+#include <sstream>
 #include "square.hpp"
 
 int main(int argc, const char * argv[])
 {
-  printSquare(5);
-  printSquare(15);
+  // get size from args
+  std::istringstream ss(argv[1]);
+  int size;
+  ss >> size;
+  printSquare(size);
   return 0;
 }

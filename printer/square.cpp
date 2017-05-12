@@ -31,10 +31,14 @@ void printRow(int size, bool isEdge)
 
 void printSquare(int size)
 {
-  for (int row = 0; row < size; row++) {
-    if (row == 0 || row == size - 1) {
+  for (int row = 0; row < size; row++)
+  {
+    if (row == 0 || row == size - 1)
+    {
       printRow(size, true);
-    } else {
+    }
+    else
+    {
       printRow(size, false);
     }
   }
