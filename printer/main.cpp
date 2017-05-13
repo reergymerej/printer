@@ -17,7 +17,10 @@ int main(int argc, const char * argv[])
   // get size from args
   std::istringstream ss(argv[1]);
   int size;
-  ss >> size;
+  if (!(ss >> size)) {
+    std::cerr << "invalid number: " << argv[1] << std::endl;
+    return 1;
+  }
   printSquare(size);
   return 0;
 }
